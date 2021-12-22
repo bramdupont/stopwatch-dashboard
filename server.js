@@ -1,15 +1,25 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const connectDB = require('./config/db');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
-var server = express();
+const server = express();
+
+// Connect Database
+connectDB();
+
+// Init Middleware
+server.use(express.json({ extended: false}));
 
 server.get('/', (req, res) => res.send('API runnning'))
+
+// Define routes
+server.use('/api/users', require('./routes/api/users'));
+server.use('/api/auth', require('./routes/api/auth'));
+server.use('/api/times', require('./routes/api/time'));
 
 const PORT = process.env.PORT || 5000;
 
@@ -24,9 +34,6 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 server.use(cookieParser());
 server.use(express.static(path.join(__dirname, 'public')));
-
-server.use('/', indexRouter);
-server.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 server.use(function(req, res, next) {
