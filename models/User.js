@@ -17,10 +17,6 @@ const UserSchema = new mongoose.Schema({
     date: {
         type: Date,
         default: Date.now()
-    },
-    fastestTime: {
-        type: String,
-        required: true
     }
 });
 
