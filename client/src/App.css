@@ -6,3 +6,8 @@
 body, *, a, p, h1, h2, h3, h4 {
     font-family: "Manrope", sans-serif;
 }
+
+.alert-danger {
+    background-color: #DC2638;
+    color: #fff;
+}
