@@ -6,12 +6,9 @@ import { logout } from '../../actions/auth';
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     const authLinks = (
-        <div className="flex items-center justify-end flex-1">
-            <Link to="/" className="px-2">
-                <p className="text-md font-semibold font-primary text-white">Scoreboard</p>
-            </Link>
+        <div className="flex items-center flex-1">
             <Link to="/times" className="px-2">
-                <p className="text-md font-semibold font-primary text-white">Times</p>
+                <p className="text-md font-semibold font-primary text-white">Scoreboard</p>
             </Link>
             <Link to="/record" className="px-2">
                 <p className="text-md font-semibold font-primary text-white">Timer</p>
@@ -23,7 +20,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     );
 
     const guestLinks = (
-        <div className="flex items-center justify-end flex-1">
+        <div className="flex items-center flex-1">
             <Link to="/login" className="px-2">
                 <p className="text-md font-semibold font-primary text-white">Inloggen</p>
             </Link>
@@ -35,12 +32,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
     return (
         <nav className="bg-emerald-400 p-4 mb-8">
-            <div className="container mx-auto px-4 flex justify-between items-center content-center">
-                <div>
-                    <Link to="/">
-                        <p className="text-xl font-bold font-primary text-white">Logo</p>
-                    </Link>
-                </div>
+            <div className="container mx-auto px-4 flex items-center content-center">
                 <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
             </div>
         </nav>

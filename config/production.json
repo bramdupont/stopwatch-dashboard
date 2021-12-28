@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://dupweb:6*nBC=08u0x&6Qo=RPGX49i1@chirodb.3twis.mongodb.net/scoreboard?retryWrites=true&w=majority",
+  "jwtToken": "mysecrettoken"
+}

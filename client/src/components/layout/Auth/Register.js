@@ -27,7 +27,7 @@ const Register = ({setAlert, register, isAuthenticated}) => {
     }
 
     if (isAuthenticated) {
-        return <Navigate to="/scoreboard"/>
+        return <Navigate to="/times"/>
     }
 
     return (

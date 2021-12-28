@@ -1,6 +1,7 @@
 import {
     GET_TIMES,
-    TIME_ERROR
+    TIME_ERROR,
+    ADD_TIME
 } from '../actions/types';
 
 const initialState = {
@@ -17,6 +18,12 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 times: payload,
+                loading: false
+            }
+        case ADD_TIME:
+            return {
+                ...state,
+                times: [...state.times, payload],
                 loading: false
             }
         case TIME_ERROR:

@@ -24,8 +24,14 @@ export const getTimes = () => async dispatch => {
 
 // Add time
 export const addTime = (formData) => async (dispatch) => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
     try {
-        const res = await axios.post('/times', formData);
+        const res = await axios.post('/api/times', formData);
 
         dispatch({
             type: ADD_TIME,

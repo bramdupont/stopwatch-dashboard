@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const connectDB = require('./config/db');
 
-
 const server = express();
 
 // Connect Database
@@ -14,12 +13,21 @@ connectDB();
 // Init Middleware
 server.use(express.json({ extended: false}));
 
-server.get('/', (req, res) => res.send('API runnning'))
 
 // Define routes
 server.use('/api/users', require('./routes/api/users'));
 server.use('/api/auth', require('./routes/api/auth'));
 server.use('/api/times', require('./routes/api/time'));
+
+// Serve static assets in production
+if(process.env.NODE_ENV === 'production') {
+  // Set static folder
+  server.use(express.static('client/build'));
+
+  server.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  })
+}
 
 const PORT = process.env.PORT || 5000;
 

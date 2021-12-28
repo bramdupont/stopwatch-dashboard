@@ -5,7 +5,7 @@ import Register from "./components/layout/Auth/Register";
 import Login from "./components/layout/Auth/Login";
 import Navbar from "./components/layout/Navbar";
 import Scoreboard from "./components/scoreboard/Scoreboard";
-import Record from "./components/layout/Record";
+import Record from "./components/times/Record";
 import Alert from "./components/layout/Alert";
 import {Provider} from "react-redux";
 import store from "./store";
