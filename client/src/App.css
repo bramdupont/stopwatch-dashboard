@@ -11,3 +11,11 @@ body, *, a, p, h1, h2, h3, h4 {
     background-color: #DC2638;
     color: #fff;
 }
+
+table.times {
+    width: 100%;
+}
+
+table.times th, table.times td {
+    text-align: left;
+}
