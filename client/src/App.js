@@ -30,7 +30,7 @@ const App = () => {
                 <div className="container mx-auto px-4 py-2 pt-8">
                     <Alert/>
                     <Routes>
-                        <Route path="/" element={<Scoreboard/>}/>
+                        <Route path="/" element={<Login/>}/>
                         <Route path="/record" element={<Record/>}/>
                         <Route path="/login" element={<Login/>}/>
                         <Route path="/register" element={<Register/>}/>

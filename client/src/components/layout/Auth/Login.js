@@ -59,7 +59,7 @@ const Login = ({login, isAuthenticated}) => {
                     </div>
                     <div className="mb-4 text-center pt-2">
                         <p className="text-sm text-gray-500">Heb je nog geen account?
-                            <Link className="text-blue-500" to="/register">Registreer</Link>
+                            <Link className="text-blue-500" to="/register"> Registreer</Link>
                         </p>
                     </div>
                 </div>
