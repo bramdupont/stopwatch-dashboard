@@ -14,8 +14,8 @@ const TimeForm = ({addTime}) => {
                 addTime({time});
                 setTime('');
             }}>
-                <input className="border-t-0 border-r-0 border-l-0 border-b-2 border-blue-500 w-full bg-transparant" type="text" name="time" value={time} onChange={e => setTime(e.target.value)}/>
-                <input className="p-4 bg-emerald-400 mt-6 block w-full text-white text-xl font-bold uppercase" type="submit" value="Submit"/>
+                <input className="border-t-0 border-r-0 mt-4 mb-12 border-l-0 border-b-2 border-blue-500 w-full bg-transparant" type="text" placeholder="1,2s" name="time" value={time} onChange={e => setTime(e.target.value)}/>
+                <input className="p-4 bg-emerald-400 mt-12 block w-full text-white text-xl font-bold uppercase" type="submit" value="Submit"/>
             </form>
         </div>
     )

@@ -27,7 +27,7 @@ const App = () => {
         <Provider store={store}>
             <Router>
                 <Navbar/>
-                <div className="container mx-auto px-4 py-2">
+                <div className="container mx-auto px-4 py-2 pt-8">
                     <Alert/>
                     <Routes>
                         <Route path="/" element={<Scoreboard/>}/>
