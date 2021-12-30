@@ -27,7 +27,7 @@ const Register = ({setAlert, register, isAuthenticated}) => {
     }
 
     if (isAuthenticated) {
-        return <Navigate to="/times"/>
+        return <Navigate to="/register"/>
     }
 
     return (

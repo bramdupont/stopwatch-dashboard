@@ -21,7 +21,7 @@ const Login = ({login, isAuthenticated}) => {
 
     //Redirect if logged in
     if(isAuthenticated) {
-        return <Navigate to="/times" />
+        return <Navigate to="/scoreboard" />
      }
 
     return (

@@ -11,7 +11,7 @@ import {Provider} from "react-redux";
 import store from "./store";
 import setAuthToken from "./utils/setAuthToken";
 import {loadUser} from "./actions/auth";
-import Times from "./components/times/Times";
+import Times from "./components/times/Scoreboard";
 import PrivateRoute from "./components/routing/PrivateRoute";
 
 if (localStorage.token) {
@@ -34,7 +34,7 @@ const App = () => {
                         <Route path="/record" element={<Record/>}/>
                         <Route path="/login" element={<Login/>}/>
                         <Route path="/register" element={<Register/>}/>
-                        <Route path="/times" element={<Times/>}/>
+                        <Route path="/scoreboard" element={<Times/>}/>
                     </Routes>
                 </div>
             </Router>

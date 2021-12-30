@@ -3,7 +3,8 @@ import {setAlert} from "./alert";
 import {
     GET_TIMES,
     TIME_ERROR,
-    ADD_TIME
+    ADD_TIME,
+    DELETE_TIMES
 } from "./types";
 
 // Get time
