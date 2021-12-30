@@ -1,12 +1,11 @@
-import React, {Fragment, useState} from 'react';
+import React, {useState} from 'react';
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {addTime} from "../../actions/time";
-import Stopwatch from "./Stopwatch";
 
 
 const TimeForm = ({addTime}) => {
-    const [time, setTime] = useState('');
+    let [time, setTime] = useState('');
 
     return (
         <div className="post-form">
@@ -14,7 +13,7 @@ const TimeForm = ({addTime}) => {
             </div>
             <form className="form my-1" onSubmit={e => {
                 e.preventDefault();
-                addTime({ time });
+                addTime({time});
                 setTime('');
             }}>
                 <input type="text" name="time" value={time} onChange={e => setTime(e.target.value)}/>
@@ -27,12 +26,7 @@ const TimeForm = ({addTime}) => {
 
 
 TimeForm.propTypes = {
-    time: PropTypes.object.isRequired,
-    auth: PropTypes.object.isRequired,
+    addTime: PropTypes.func.isRequired
 }
-
-const mapStateToProps = state => ({
-    auth: state.auth
-})
 
 export default connect(null, {addTime})(TimeForm);

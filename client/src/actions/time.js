@@ -14,10 +14,10 @@ export const getTimes = () => async dispatch => {
             type: GET_TIMES,
             payload: res.data
         })
-    } catch(err) {
+    } catch (err) {
         dispatch({
             type: TIME_ERROR,
-            payloads: { msg: err.response.statusText, status: err.response.status }
+            payloads: {msg: err.response.statusText, status: err.response.status}
         });
     }
 }
@@ -38,11 +38,11 @@ export const addTime = (formData) => async (dispatch) => {
             payload: res.data
         });
 
-        dispatch(setAlert('Time Created', 'success'));
+        dispatch(setAlert('Tijd toegevoegd', 'success'));
     } catch (err) {
         dispatch({
             type: TIME_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status }
+            payload: {msg: err.response.statusText, status: err.response.status}
         });
     }
 };
