@@ -8,17 +8,14 @@ const TimeForm = ({addTime}) => {
     let [time, setTime] = useState('');
 
     return (
-        <div className="post-form">
-            <div className="bg-primary p">
-            </div>
-            <form className="form my-1" onSubmit={e => {
+        <div>
+            <form onSubmit={e => {
                 e.preventDefault();
                 addTime({time});
                 setTime('');
             }}>
-                <input type="text" name="time" value={time} onChange={e => setTime(e.target.value)}/>
-                {/*<Stopwatch/>*/}
-                <input type="submit" className="btn btn-dark my-1" value="Submit"/>
+                <input className="border-t-0 border-r-0 border-l-0 border-b-2 border-blue-500 w-full bg-transparant" type="text" name="time" value={time} onChange={e => setTime(e.target.value)}/>
+                <input className="p-4 bg-emerald-400 mt-6 block w-full text-white text-xl font-bold uppercase" type="submit" value="Submit"/>
             </form>
         </div>
     )

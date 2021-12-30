@@ -11,20 +11,23 @@ const Times = ({getTimes, time: {times, loading}}) => {
     }, [getTimes]);
     return loading ? <Spinner/> : (
         <Fragment>
-            <h1 className="text-2xl font-bold font-primary">Times</h1>
-            <table className="table-auto times">
-                <thead>
-                <tr>
-                    <th>Naam</th>
-                    <th>Tijd</th>
-                </tr>
-                </thead>
-                <tbody>
-                {times.map(time => (
-                    <TimeItem key={time._id} time={time}/>
-                ))}
-                </tbody>
-            </table>
+            <h1 className="text-2xl font-bold font-primary mb-8">Scoreboard</h1>
+            <div className="overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                <table className="table-auto times min-w-full divide-y divide-gray-200 bg-blue-50 rounded-lg">
+                    <thead className="py-2">
+                    <tr>
+                        <th className="p-2 mb-2 text-left">#</th>
+                        <th className="p-2 mb-2 text-left">Tijd</th>
+                        <th className="p-2 mb-2 text-left">Naam</th>
+                    </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-300">
+                    {times.map((time, index) => (
+                        <TimeItem key={time._id} index={index} time={time}/>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
         </Fragment>
     )
 }

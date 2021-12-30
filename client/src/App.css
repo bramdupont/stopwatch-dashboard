@@ -12,10 +12,7 @@ body, *, a, p, h1, h2, h3, h4 {
     color: #fff;
 }
 
-table.times {
-    width: 100%;
-}
-
-table.times th, table.times td {
-    text-align: left;
+.alert-success {
+    background-color: #22C55E;
+    color: #fff;
 }
