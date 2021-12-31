@@ -9,9 +9,11 @@ const Time = require('../../models/Time');
 // @route POST api/times
 // @desc Create a time
 // @access Private
-router.post('/', auth,
-    check('time', 'Tijd is verplicht').notEmpty()
-    , async (req, res) => {
+router.post(
+    '/',
+    auth,
+    check('time', 'Tijd is verplicht').notEmpty(),
+    async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({errors: errors.array()});
@@ -19,38 +21,64 @@ router.post('/', auth,
 
         try {
             const user = await User.findById(req.user.id).select('-password');
-            const query = {id: req.user.id};
 
-            const times = await Time.findOne(query);
-            if (!times) {
-                const newTime = new Time({
-                    time: req.body.time,
-                    name: user.name,
-                    user: req.user.id
-                })
-                const time = await newTime.save();
-                res.json(time);
-            }
+            const newTime = new Time({
+                time: req.body.time,
+                name: user.name,
+                user: req.user.id
+            })
+            const time = await newTime.save();
+            res.json(time);
 
-            if (times.time > req.body.time) {
-                if (times && times.length !== 0) {
-                    await times.remove();
-                }
-                const newTime = new Time({
-                    time: req.body.time,
-                    name: user.name,
-                    user: req.user.id
-                })
-                const time = await newTime.save();
-                res.json(time);
-            } else {
-                return res.status(400).json({msg: 'De tijd is trager.'});
-            }
         } catch (err) {
-            console.error(err);
-            res.status(500).send('Server error');
+            console.error(err.message);
+            res.status(500).send('Server Error');
         }
-    });
+    }
+)
+;
+// router.post('/', auth,
+//     check('time', 'Tijd is verplicht').notEmpty()
+//     , async (req, res) => {
+//         const errors = validationResult(req);
+//         if (!errors.isEmpty()) {
+//             return res.status(400).json({errors: errors.array()});
+//         }
+//
+//         try {
+//             const user = await User.findById(req.user.id).select('-password');
+//             const query = {id: req.user.id};
+//
+//             const times = await Time.findOne(query);
+//             if (!times) {
+//                 const newTime = new Time({
+//                     time: req.body.time,
+//                     name: user.name,
+//                     user: req.user.id
+//                 })
+//                 const time = await newTime.save();
+//                 res.json(time);
+//             }
+//
+//             if (times.time > req.body.time) {
+//                 if (times && times.length !== 0) {
+//                     await times.remove();
+//                 }
+//                 const newTime = new Time({
+//                     time: req.body.time,
+//                     name: user.name,
+//                     user: req.user.id
+//                 })
+//                 const time = await newTime.save();
+//                 res.json(time);
+//             } else {
+//                 return res.status(400).json({msg: 'De tijd is trager.'});
+//             }
+//         } catch (err) {
+//             console.error(err);
+//             res.status(500).send('Server error');
+//         }
+//     });
 
 // @route GET api/times
 // @desc Get all times
