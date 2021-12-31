@@ -28,12 +28,12 @@ const TimeForm = ({
     time = ("0" + Math.floor((timer / 60000) % 60)).slice(-2) + ":" + ("0" + Math.floor((timer / 1000) % 60)).slice(-2) + ":" + ("0" + ((timer / 10) % 100)).slice(-2);
     return (
         <div className="recorder my-4 flex justify-start items-center content-center flex-col">
-            <div className="py-8">
-                <span className="p-2 px-0 text-5xl text-emerald-400">{("0" + Math.floor((timer / 60000) % 60)).slice(-2)}</span>
+            <div className="py-8 flex flex-row items-center justify-between">
+                <span className="digit p-2 px-0 text-5xl text-emerald-400">{("0" + Math.floor((timer / 60000) % 60)).slice(-2)}</span>
                 <span className="p-2 px-0 text-5xl text-emerald-400">:</span>
-                <span className="p-2 px-0 text-5xl text-emerald-400">{("0" + Math.floor((timer / 1000) % 60)).slice(-2)}</span>
+                <span className="digit p-2 px-0 text-5xl text-emerald-400">{("0" + Math.floor((timer / 1000) % 60)).slice(-2)}</span>
                 <span className="p-2 px-0 text-5xl text-emerald-400">:</span>
-                <span className="p-2 px-0 text-5xl text-emerald-400">{("0" + ((timer / 10) % 100)).slice(-2)}</span>
+                <span className="digit p-2 px-0 text-5xl text-emerald-400">{("0" + ((timer / 10) % 100)).slice(-2)}</span>
             </div>
                 <button className="p-2 py-4 bg-emerald-400 my-3 block w-full text-center text-white text-xl font-bold" onClick={() => setRunning(true)}>Start</button>
                 <button className="p-2 py-4 bg-red-600 my-3 block w-full text-center text-white text-xl font-bold" onClick={() => setRunning(false)}>Stop</button>

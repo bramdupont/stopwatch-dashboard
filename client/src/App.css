@@ -35,3 +35,8 @@ body, *, a, p, h1, h2, h3, h4 {
 .bottom-link {
     padding-top: 5vh;
 }
+
+.recorder .flex span {
+    width: 50px;
+    text-align: center;
+}
