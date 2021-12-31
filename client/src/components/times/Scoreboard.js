@@ -1,4 +1,5 @@
 import React, {Fragment, useEffect} from "react";
+import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import Spinner from '../layout/Spinner';
@@ -9,6 +10,7 @@ const Scoreboard = ({getTimes, time: {times, loading}}) => {
     useEffect(() => {
         getTimes();
     }, [getTimes]);
+
     return loading ? <Spinner/> : (
         <Fragment>
             <h1 className="text-2xl font-bold font-primary mb-8">Scoreboard</h1>
@@ -27,6 +29,8 @@ const Scoreboard = ({getTimes, time: {times, loading}}) => {
                     ))}
                     </tbody>
                 </table>
+                <Link className="p-4 bg-emerald-400 mt-12 block w-full text-center text-white text-xl font-bold"
+                      to="/record">Zet een tijd neer</Link>
             </div>
         </Fragment>
     )

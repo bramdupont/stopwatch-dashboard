@@ -10,4 +10,3 @@ export const LOGOUT = 'LOGOUT';
 export const GET_TIMES = 'GET_TIMES';
 export const TIME_ERROR = 'TIME_ERROR';
 export const ADD_TIME = 'ADD_TIME';
-export const DELETE_TIMES = 'DELETE_TIMES';

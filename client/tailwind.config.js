@@ -24,10 +24,10 @@ module.exports = {
             addComponents({
                 '.alert': {
                     padding: '0.8rem',
-                    margin: '2em auto',
+                    margin: '1rem 0',
                     opacity: '0.9',
                     textAlign: 'center',
-                    width: '50%',
+                    width: '100%',
                 },
                 '.container': {
                     maxWidth: '100%',

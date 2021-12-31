@@ -4,7 +4,6 @@ import {
     GET_TIMES,
     TIME_ERROR,
     ADD_TIME,
-    DELETE_TIMES
 } from "./types";
 
 // Get time
@@ -25,21 +24,19 @@ export const getTimes = () => async dispatch => {
 
 // Add time
 export const addTime = (formData) => async (dispatch) => {
-    const config = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }
 
     try {
-        const res = await axios.post('/api/times', formData);
+        await axios.post('/api/times', formData).then((response) => {
+                dispatch({
+                    type: ADD_TIME,
+                    payload: response.data
+                })
+                dispatch(setAlert('Tijd toegevoegd', 'success'))
+            },
+            (error) => {
+                dispatch(setAlert('De tijd is trager en wordt niet opgeslagen.', 'danger'));
+            });
 
-        dispatch({
-            type: ADD_TIME,
-            payload: res.data
-        });
-
-        dispatch(setAlert('Tijd toegevoegd', 'success'));
     } catch (err) {
         dispatch({
             type: TIME_ERROR,

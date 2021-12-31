@@ -13,6 +13,16 @@ body, *, a, p, h1, h2, h3, h4 {
 }
 
 .alert-success {
-    background-color: #22C55E;
+    background-color: #34D399;
     color: #fff;
+}
+
+.badge {
+    position: absolute;
+    bottom: 30px;
+    left: 25%;
+}
+
+.recorder, .bottom-link {
+    padding-top: 15vh;
 }
