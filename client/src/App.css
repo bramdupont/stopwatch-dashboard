@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+ min-height: 100vh;
+}
 
 body, *, a, p, h1, h2, h3, h4 {
     font-family: "Manrope", sans-serif;
@@ -23,6 +28,10 @@ body, *, a, p, h1, h2, h3, h4 {
     left: 25%;
 }
 
-.recorder, .bottom-link {
-    padding-top: 15vh;
+.recorder {
+    padding-top: 5vh;
+}
+
+.bottom-link {
+    padding-top: 5vh;
 }
